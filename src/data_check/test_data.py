@@ -61,10 +61,12 @@ def test_similar_neigh_distrib(data: pd.DataFrame, ref_data: pd.DataFrame, kl_th
 
 
 def test_row_count(data):
+    """Check that the rows of the dataset is between two given boundaries"""
     assert 15000 < data.shape[0] < 1000000
 
 
 def test_price_range(data, min_price, max_price):
+    """Check that price spans between two given values"""
     assert (
         data['price'].dropna().between(min_price, max_price).all()
     ), (
